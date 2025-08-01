@@ -8,7 +8,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   cors: {
-    origin: ["https://s-siddiqui.github.io"],
+    origin: ["https://s-siddiqui.github.io", "http://localhost:3000"],
     credentials: true,
   },
 });

@@ -41,10 +41,11 @@ jobs:
       - name: Inject .env.production & Build mf-account
         run: |
           echo "${{ secrets.HOST_ENV_PROD }}" > .env.production
-          echo "🌱 mf-account .env.production:"
-          cat .env.production | sed 's/./& /g'
-          echo "📁 Files in mf-account:"
-          ls -la
+          # Use for Debugging env variables
+          # echo "🌱 mf-account .env.production:"
+          # cat .env.production | sed 's/./& /g'
+          # echo "📁 Files in mf-account:"
+          # ls -la
           npm run build
         working-directory: ./packages/mf-account
 
@@ -61,10 +62,11 @@ jobs:
       - name: Inject .env.production & Build mf-transactions
         run: |
           echo "${{ secrets.HOST_ENV_PROD }}" > .env.production
-          echo "🌱 mf-transactions .env.production:"
-          cat .env.production | sed 's/./& /g'
-          echo "📁 Files in mf-transactions:"
-          ls -la
+          # Use for Debugging env variables
+          # echo "🌱 mf-transactions .env.production:"
+          # cat .env.production | sed 's/./& /g'
+          # echo "📁 Files in mf-transactions:"
+          # ls -la
           npm run build
         working-directory: ./packages/mf-transactions
 
@@ -81,10 +83,11 @@ jobs:
       - name: Inject .env.production & Build host
         run: |
           echo "${{ secrets.HOST_ENV_PROD }}" > .env.production
-          echo "🌱 host .env.production:"
-          cat .env.production | sed 's/./& /g'
-          echo "📁 Files in host:"
-          ls -la
+          # Use for Debugging env variables
+          # echo "🌱 host .env.production:"
+          # cat .env.production | sed 's/./& /g'
+          # echo "📁 Files in host:"
+          # ls -la
           npm run build
         working-directory: ./packages/host
 
