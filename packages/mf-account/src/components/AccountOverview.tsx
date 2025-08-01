@@ -17,7 +17,6 @@ export const AccountOverview = () => {
   const lastTransactions = account.transactions.slice(0, 3);
 
   const handleTransactionClick = (id: string) => {
-    console.log("Emitting transactionSelected:", id);
     // Emit global event for MF2
     (window as any).__lastSelectedTransactionId = id;
     (window as any).eventBus.emit("transactionSelected", id);

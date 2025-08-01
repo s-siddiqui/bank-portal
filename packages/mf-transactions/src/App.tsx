@@ -48,8 +48,6 @@ const TransactionsWrapper = () => {
   const selectedTxn =
     transactions?.find((t: any) => t.id === selectedId) || null;
 
-  console.log(transactions, selectedTxn, selectedId, "txn");
-
   return (
     <View style={styles.container}>
       <BackButton />

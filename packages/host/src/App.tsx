@@ -6,8 +6,6 @@ import { AppRouter } from "./AppRouter";
 
 import { client } from "./graphql/client";
 
-console.log(process.env.NODE_ENV, process.env, "process.env.NODE_ENV");
-
 const App = () => (
   <BrowserRouter
     basename={process.env.NODE_ENV === "production" ? "/bank-portal/host" : "/"}
