@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    plan: free
+    buildCommand: cd packages/backend && npm install && npm run build
+    startCommand: cd packages/backend && npm start
+    rootDir: packages/backend
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+
+        # render.yaml
+services:
+  - type: web
+    name: apollo-backend
+    env: node
+    plan: free
+    buildCommand: yarn install && yarn build
+    startCommand: yarn start
+    envVars:
+      - key: NODE_ENV
+        value: production

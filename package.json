@@ -1,0 +1,54 @@
+{
+  "name": "bank-portal",
+  "private": true,
+  "version": "1.0.0",
+  "homepage": "https://s-siddiqui.github.io/bank-portal/host/",
+  "workspaces": [
+    "packages/backend",
+    "packages/ui-kit",
+    "packages/host",
+    "packages/mf-account",
+    "packages/mf-transactions"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean.js",
+    "start:backend": "npm run start --workspace=backend",
+    "start:host": "npm run start --workspace=host",
+    "start:mf-account": "npm run start --workspace=mf-account",
+    "start:mf-transactions": "npm run start --workspace=mf-transactions",
+    "watch:ui-kit": "npm run watch --workspace=@bank-portal/ui-kit",
+    "start:all": "concurrently \"npm:watch:ui-kit\" \"npm:start:backend\" \"npm:start:host\" \"npm:start:mf-account\" \"npm:start:mf-transactions\"",
+    "build:ui-kit": "npm run build --workspace=@bank-portal/ui-kit",
+    "build:mf-account": "npm run build --workspace=mf-account -- --mode production",
+    "build:mf-transactions": "npm run build --workspace=mf-transactions -- --mode production",
+    "build:host": "npm run build --workspace=host -- --mode production",
+    "build:all": "npm run build:ui-kit && npm run build:mf-account && npm run build:mf-transactions && npm run build:host",
+    "copy-mf": "node scripts/copy-mf.js",
+    "predeploy": "npm run clean && npm install && npm run build && npm run copy-mf",
+    "deploy": "gh-pages -d packages/host/dist",
+    "deploy:mf-account": "npm run build:mf-account && gh-pages -d packages/mf-account/dist",
+    "deploy:mf-transactions": "npm run build:mf-transactions && gh-pages -d packages/mf-transactions/dist",
+    "deploy:host": "npm run build:host && gh-pages -d packages/host/dist",
+    "deploy:all": "npm run deploy:mf-account && npm run deploy:mf-transactions && npm run deploy:host",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.12.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "compression-webpack-plugin": "^11.1.0",
+    "concurrently": "^9.2.0",
+    "dotenv": "^17.2.1",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "gh-pages": "^6.3.0",
+    "prettier": "^2.8.4",
+    "terser-webpack-plugin": "^5.3.14",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "process": "^0.11.10"
+  }
+}
