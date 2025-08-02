@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import { View, Text } from "ui-kit";
+import { View, Text } from "@bank-portal/ui-kit";
 
 export const Sidebar = () => (
   <View style={styles.sidebar}>
@@ -14,7 +14,7 @@ export const Sidebar = () => (
 
 const styles = StyleSheet.create({
   sidebar: {
-    width: 200,
+    minWidth: 200,
     backgroundColor: "#f4f6f8",
     padding: 20,
     borderRightColor: "#ccc",

@@ -105,7 +105,7 @@ The host will be available at `http://localhost:3000`.
    - MFEs use their own routing or Event Bus. Deep linking is limited. Future: unify routing between Host and MFEs.
 
 3. **State Management**:
-   - Event Bus works but can be brittle. Introduce shared state library (e.g., Redux Toolkit or Recoil).
+   - Event Bus works but can be brittle. Introduce shared state library (e.g., Zustand, Redux Toolkit or Recoil).
 
 4. **Mobile Build**:
    - Although `react-native-web` is used, we have not yet set up a native mobile build. Future work: add React Native mobile app consuming the same MFEs.
